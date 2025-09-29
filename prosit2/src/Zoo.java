@@ -22,30 +22,32 @@ public class Zoo {
         System.out.println("Number of Cages: " + nbrCages);
         System.out.println("Number of Animals: " + nbrAnimals);
     }
-    // Instruction 9
-    @Override
-    public String toString() {
-        return "Zoo{" +
-                "name='" + name + '\'' +
-                ", city='" + city + '\'' +
-                ", nbrCages=" + nbrCages +
-                ", nbrAnimals=" + nbrAnimals +
-                '}';
-    }
+
 
     //instruction 10 - prosit3
     // méthode d'ajout animal
+    //update- instruction 12 -contrainte d'ajout
     public boolean addAnimal(Animal animal) {
-        if (nbrAnimals < animals.length) {
-            animals[nbrAnimals] = animal;
-            nbrAnimals++;
-            return true;
-        } else {
+        // Vérifier si zoo plein
+        if (nbrAnimals >= nbrCages) {
+            System.out.println("Impossible d’ajouter " + animal.name + " : zoo plein !");
             return false;
         }
+        //verifier si animal existe déjà
+        for (int i = 0; i < nbrAnimals; i++) {
+            if (animals[i].equals(animal)) {
+                System.out.println("Impossible d’ajouter " + animal.name + " : animal déjà présent");
+                return false;
+            }
+        }
+        // Ajout autorisé
+        animals[nbrAnimals] = animal;
+        nbrAnimals++;
+        System.out.println( animal.name + " ajouté au zoo !");
+        return true;
     }
 
-    //instruction 11 - méthode displayAnimals()
+        //instruction 11 - méthode displayAnimals()
     public void displayAnimals() {
         System.out.println("Animaux du zoo " + name + ":");
         for (int i = 0; i < nbrAnimals; i++) {
@@ -60,5 +62,15 @@ public class Zoo {
             }
         }
         return -1;
+    }
+    // Instruction 9
+    @Override
+    public String toString() {
+        return "Zoo{" +
+                "name='" + name + '\'' +
+                ", city='" + city + '\'' +
+                ", nbrCages=" + nbrCages +
+                ", nbrAnimals=" + nbrAnimals +
+                '}';
     }
 }

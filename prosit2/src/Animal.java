@@ -1,3 +1,5 @@
+import java.util.Objects;
+
 public class Animal {
     // Instruction 5: Attributs de la classe Animal
     String family;
@@ -21,5 +23,20 @@ public class Animal {
                 ", age=" + age +
                 ", isMammal=" + isMammal +
                 '}';
+    }
+    // comparaison d’animaux : ils sont égaux si tous leurs attributs sont identiques
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) return true;
+        if (!(obj instanceof Animal)) return false;
+        Animal other = (Animal) obj;
+        return age == other.age &&
+                isMammal == other.isMammal &&
+                Objects.equals(family, other.family) &&
+                Objects.equals(name, other.name);
+    }
+    @Override
+    public int hashCode() {
+        return Objects.hash(family, name, age, isMammal);
     }
 }
