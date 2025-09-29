@@ -83,6 +83,19 @@ public class Zoo {
         System.out.println(animal.name + " n'existe pas dans le zoo !");
         return false;
     }
+
+    //instr 16
+    public static Zoo comparerZoo(Zoo z1, Zoo z2) {
+        if (z1.nbrAnimals > z2.nbrAnimals) {
+            return z1;
+        } else if (z2.nbrAnimals > z1.nbrAnimals) {
+            return z2;
+        } else {
+            System.out.println("kifkif");
+            return z1;
+        }
+    }
+
     // Instruction 9
     @Override
     public String toString() {

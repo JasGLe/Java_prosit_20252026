@@ -1,17 +1,16 @@
 public class Main {
     public static void main(String[] args) {
-        //affichage test pour instruction 15
-        //verifie si zoo est plein
-        // si oui, afficher un message
-        Zoo myZoo = new Zoo("friguia", "Tunis");
+        //affichage pour instruction 16
+        Zoo zoo1 = new Zoo("fruigia", "sousse");
+        Zoo zoo2 = new Zoo("belveder", "tunis");
 
-        for (int i = 1; i <= 25; i++) {
-            myZoo.addAnimal(new Animal("test", "Animal" + i, i, true));
-        }
+        zoo1.addAnimal(new Animal("Felidae", "Lion", 5, true));
+        zoo1.addAnimal(new Animal("Accipitridae", "Eagle", 3, false));
 
-        System.out.println("Zoo plein ? " + myZoo.isZooFull());
+        zoo2.addAnimal(new Animal("Delphinidae", "Dolphin", 8, true));
 
-        Animal extra = new Animal("test", "onemore", 99, true);
-        myZoo.addAnimal(extra);
+        Zoo winner = Zoo.comparerZoo(zoo1, zoo2);
+        System.out.println("Le zoo avec le plus d'animaux est : " + winner.name);
     }
-    }
+}
+
