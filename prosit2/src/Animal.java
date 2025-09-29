@@ -12,4 +12,14 @@ public class Animal {
         this.age = age;
         this.isMammal = isMammal;
     }
+    // Instruction 9
+    @Override
+    public String toString() {
+        return "Animal{" +
+                "family='" + family + '\'' +
+                ", name='" + name + '\'' +
+                ", age=" + age +
+                ", isMammal=" + isMammal +
+                '}';
+    }
 }
