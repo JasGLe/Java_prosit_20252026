@@ -7,5 +7,9 @@ public class Main {
         Animal dolphin = new Animal("Delphinidae", "Dolphin", 8, true);
 
         Zoo myZoo = new Zoo("Zoo de Tunis", "Tunis", 20);
+
+        myZoo.displayZoo();
+        System.out.println(myZoo);
+        System.out.println(myZoo.toString());
     }
 }

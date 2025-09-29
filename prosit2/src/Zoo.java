@@ -12,4 +12,10 @@ public class Zoo {
         this.nbrCages = nbrCages;
         this.animals = new Animal[25];
     }
+    // Instruction 8 : Méthode displayZoo()
+    public void displayZoo() {
+        System.out.println("Zoo Name: " + name);
+        System.out.println("City: " + city);
+        System.out.println("Number of Cages: " + nbrCages);
+    }
 }
