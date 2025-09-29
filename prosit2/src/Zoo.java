@@ -18,4 +18,13 @@ public class Zoo {
         System.out.println("City: " + city);
         System.out.println("Number of Cages: " + nbrCages);
     }
+    // Instruction 9
+    @Override
+    public String toString() {
+        return "Zoo{" +
+                "name='" + name + '\'' +
+                ", city='" + city + '\'' +
+                ", nbrCages=" + nbrCages +
+                '}';
+    }
 }
