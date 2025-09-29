@@ -37,6 +37,10 @@ public class ZooManagement {
         }
         zoo.nbrCages = newNbrCages;
         scanner.close();
+
+        // Instruction 3: Affichage des changements
+        System.out.println("\n Informations mises à jour");
+        System.out.println(zoo.zooName + " comporte " + zoo.nbrCages + " cages");
     }
 
 }
