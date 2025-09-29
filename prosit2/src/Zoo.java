@@ -12,8 +12,13 @@ public class Zoo {
         this.city = city;
         this.animals = new Animal[nbrCages]; // tableau de 25 animaux max
         this.nbrAnimals = 0;
-
     }
+
+    //instruction 15
+    public boolean isZooFull() {
+        return nbrAnimals >= nbrCages;
+    }
+
     // Instruction 8 : Méthode displayZoo()
     public void displayZoo() {
         System.out.println("Zoo Name: " + name);
@@ -78,7 +83,6 @@ public class Zoo {
         System.out.println(animal.name + " n'existe pas dans le zoo !");
         return false;
     }
-
     // Instruction 9
     @Override
     public String toString() {

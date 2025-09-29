@@ -1,17 +1,17 @@
 public class Main {
     public static void main(String[] args) {
-        //test pour instruction 13
-        Zoo myZoo = new Zoo("friguia", "Tunis"); // on a enlevé le nbr de cages
+        //affichage test pour instruction 15
+        //verifie si zoo est plein
+        // si oui, afficher un message
+        Zoo myZoo = new Zoo("friguia", "Tunis");
 
-        Animal lion = new Animal("Felidae", "Lion", 5, true);
-        Animal eagle = new Animal("Accipitridae", "Eagle", 3, false);
+        for (int i = 1; i <= 25; i++) {
+            myZoo.addAnimal(new Animal("test", "Animal" + i, i, true));
+        }
 
-        myZoo.addAnimal(lion);
-        myZoo.addAnimal(eagle);
+        System.out.println("Zoo plein ? " + myZoo.isZooFull());
 
-        myZoo.displayZoo();
-        myZoo.displayAnimals();
-
-
+        Animal extra = new Animal("test", "onemore", 99, true);
+        myZoo.addAnimal(extra);
     }
-}
+    }
