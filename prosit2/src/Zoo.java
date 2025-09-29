@@ -44,4 +44,21 @@ public class Zoo {
             return false;
         }
     }
+
+    //instruction 11 - méthode displayAnimals()
+    public void displayAnimals() {
+        System.out.println("Animaux du zoo " + name + ":");
+        for (int i = 0; i < nbrAnimals; i++) {
+            System.out.println((i + 1) + ". " + animals[i]);
+        }
+    }
+    //instruction 11 - méthode searchAnimal()
+    public int searchAnimal(Animal animal) {
+        for (int i = 0; i < nbrAnimals; i++) {
+            if (animals[i].name.equals(animal.name)) {
+                return i;
+            }
+        }
+        return -1;
+    }
 }

@@ -1,25 +1,24 @@
 public class Main {
-    // Instruction 5
     public static void main(String[] args) {
-        Animal lion = new Animal("Félidés", "Simba", 5, true);
-        //instruction 7: ajout d'autres objets
-        Animal eagle = new Animal("Accipitridae", "Eagle", 3, false);
-        Animal dolphin = new Animal("Delphinidae", "Dolphin", 8, true);
+        //test pour intruction 11 - prosit3
+        Zoo myZoo = new Zoo("belvedere", "Tunis", 10);
 
-        Zoo myZoo = new Zoo("Zoo de Tunis", "Tunis", 20);
+        Animal lion = new Animal("asad", "Lion", 5, true);
 
-        //instruction 10 - prosit3
-        System.out.println("Ajout Lion: " + myZoo.addAnimal(lion));
-        System.out.println("Ajout Eagle: " + myZoo.addAnimal(eagle));
-        System.out.println("Ajout Dolphin: " + myZoo.addAnimal(dolphin));
-        //ajouter plus que 25 animaux
-        for (int i = 0; i < 30; i++) {
-            Animal temp = new Animal("TestFamily", "Animal" + i, i, true);
-            boolean result = myZoo.addAnimal(temp);
-            System.out.println("Ajout de Animal" + i + ": " + result);
-        }
+        // Ajout du lion au zoo
+        myZoo.addAnimal(lion);
 
-        myZoo.displayZoo();
-        System.out.println(myZoo);
+        // Affichage des animaux
+        myZoo.displayAnimals();
+
+        //Recherche du lion
+        int index1 = myZoo.searchAnimal(lion);
+        System.out.println("Résultat de la recherche du lion : " + index1);
+
+        Animal lion2 = new Animal("asad", "simba", 5, true);
+
+        // Recherche du nouveau lion
+        int index2 = myZoo.searchAnimal(lion2);
+        System.out.println("Résultat de la recherche du lion2 : " + index2);
     }
 }
