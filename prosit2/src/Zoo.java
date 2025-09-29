@@ -63,6 +63,23 @@ public class Zoo {
         }
         return -1;
     }
+    //instruction 13 - methode removeAnimal()
+    public boolean removeAnimal(Animal animal) {
+        for (int i = 0; i < nbrAnimals; i++) {
+            if (animals[i].equals(animal)) {
+                for (int j = i; j < nbrAnimals - 1; j++) {
+                    animals[j] = animals[j + 1];
+                }
+                animals[nbrAnimals - 1] = null;
+                nbrAnimals--;
+                System.out.println(  animal.name + " supprimé du zoo !");
+                return true;
+            }
+        }
+        System.out.println(animal.name + " n'existe pas dans le zoo !");
+        return false;
+    }
+
     // Instruction 9
     @Override
     public String toString() {
