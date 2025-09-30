@@ -1,17 +1,42 @@
-class Zoo {
+public class Zoo {
     // Instruction 5: Attributs de la classe Animal
     Animal[] animals;
-    String name;
-    String city;
-    final int nbrCages = 25; //constante
-    int nbrAnimals;
+    private String name;
+    private String city;
+    private final int nbrCages = 25; //constante
+    private int nbrAnimals;
 
     // Instruction 6 : Constructeur paramétré
     public Zoo(String name, String city) {
-        this.name = name;
+        setName(name); //setter
         this.city = city;
         this.animals = new Animal[nbrCages]; // tableau de 25 animaux max
         this.nbrAnimals = 0;
+    }
+    //instruction 18 - getter et setter
+    public String getName() {
+        return name;
+    }
+    //instruction 18 - contrainte de nom
+    public void setName(String name) {
+        if (name!=null && !name.trim().isEmpty()){
+            this.name=name;
+        }else{
+            System.out.println("nom de zoo ne doit pas etre vide");
+            this.name="zoo par defaut"; //c'est la valeur par defaut en cas de valeur vide
+        }
+    }
+    public String getCity() {
+        return city;
+    }
+    public void setCity(String city) {
+        this.city = city;
+    }
+    public int getNbrAnimals() {
+        return nbrAnimals;
+    }
+    public int getNbrCages() {
+        return nbrCages;
     }
 
     //instruction 15

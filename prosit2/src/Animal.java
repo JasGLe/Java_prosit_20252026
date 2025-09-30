@@ -1,19 +1,49 @@
 import java.util.Objects;
 
-class Animal {
+public class Animal {
     // Instruction 5: Attributs de la classe Animal
-    String family;
-    String name;
-    int age;
-    boolean isMammal;
+    private String family;
+    private String name;
+    private int age;
+    private boolean isMammal;
 
 
     // Instruction 6 : Constructeur paramétré
     public Animal(String family, String name, int age, boolean isMammal) {
         this.family = family;
         this.name = name;
-        this.age = age;
+        setAge(age); // ici on utilise le setter
         this.isMammal = isMammal;
+    }
+    //instruction 18 - setter et getter afin de valider l'age de l'animal.
+    public String getFamily() {
+        return family;
+    }
+    public void setFamily(String family) {
+        this.family = family;
+    }
+    public String getName() {
+        return name;
+    }
+    public void setName(String name) {
+        this.name = name;
+    }
+    public int getAge() {
+        return age;
+    }
+    public void setAge(int age) {
+        if (age>=0) {
+            this.age = age;
+        }else{
+            System.out.println("Impossible d'ajouter du age !");
+            this.age = 0; //valeur par défaut
+        }
+    }
+    public boolean isMammal() {
+        return isMammal;
+    }
+    public void setMammal(boolean mammal) {
+        isMammal = mammal;
     }
     // Instruction 9
     @Override
