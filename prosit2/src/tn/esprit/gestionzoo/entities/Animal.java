@@ -1,3 +1,4 @@
+package tn.esprit.gestionzoo.entities;
 import java.util.Objects;
 
 public class Animal {
@@ -35,7 +36,7 @@ public class Animal {
         if (age>=0) {
             this.age = age;
         }else{
-            System.out.println("Impossible d'ajouter du age !");
+            System.out.println("impossible d'ajouter car age negatif !");
             this.age = 0; //valeur par défaut
         }
     }

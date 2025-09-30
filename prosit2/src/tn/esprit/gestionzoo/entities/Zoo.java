@@ -1,6 +1,8 @@
+package tn.esprit.gestionzoo.entities;
+
 public class Zoo {
     // Instruction 5: Attributs de la classe Animal
-    Animal[] animals;
+    private Animal[] animals;
     private String name;
     private String city;
     private final int nbrCages = 25; //constante
@@ -46,7 +48,7 @@ public class Zoo {
 
     // Instruction 8 : Méthode displayZoo()
     public void displayZoo() {
-        System.out.println("Zoo Name: " + name);
+        System.out.println("Zoo Name: " + getName());
         System.out.println("City: " + city);
         System.out.println("Number of Cages ( max): " + nbrCages);
         System.out.println("Number of Animals: " + nbrAnimals);
@@ -60,26 +62,26 @@ public class Zoo {
         // Vérifier si zoo plein
         //instruction 17 prosit 4 - on a utilisé la methode isZooFull
         if (isZooFull()) {
-            System.out.println("Impossible d’ajouter " + animal.name + " : zoo plein !");
+            System.out.println("Impossible d’ajouter " + animal.getName() + " : zoo plein !");
             return false;
         }
         //verifier si animal existe déjà
         for (int i = 0; i < nbrAnimals; i++) {
             if (animals[i].equals(animal)) {
-                System.out.println("Impossible d’ajouter " + animal.name + " : animal déjà présent");
+                System.out.println("Impossible d’ajouter " + animal.getName() + " : animal déjà présent");
                 return false;
             }
         }
         // Ajout autorisé
         animals[nbrAnimals] = animal;
         nbrAnimals++;
-        System.out.println( animal.name + " ajouté au zoo !");
+        System.out.println( animal.getName() + " ajouté au zoo !");
         return true;
     }
 
         //instruction 11 - méthode displayAnimals()
     public void displayAnimals() {
-        System.out.println("Animaux du zoo " + name + ":");
+        System.out.println("Animaux du zoo " + getName() + ":");
         for (int i = 0; i < nbrAnimals; i++) {
             System.out.println((i + 1) + ". " + animals[i]);
         }
@@ -87,7 +89,7 @@ public class Zoo {
     //instruction 11 - méthode searchAnimal()
     public int searchAnimal(Animal animal) {
         for (int i = 0; i < nbrAnimals; i++) {
-            if (animals[i].name.equals(animal.name)) {
+            if (animals[i].getName().equals(animal.getName())) {
                 return i;
             }
         }
@@ -102,11 +104,11 @@ public class Zoo {
                 }
                 animals[nbrAnimals - 1] = null;
                 nbrAnimals--;
-                System.out.println(  animal.name + " supprimé du zoo !");
+                System.out.println(  animal.getName() + " supprimé du zoo !");
                 return true;
             }
         }
-        System.out.println(animal.name + " n'existe pas dans le zoo !");
+        System.out.println(animal.getName() + " n'existe pas dans le zoo !");
         return false;
     }
 
@@ -126,7 +128,7 @@ public class Zoo {
     @Override
     public String toString() {
         return "Zoo{" +
-                "name='" + name + '\'' +
+                "name='" + getName() + '\'' +
                 ", city='" + city + '\'' +
                 ", nbrCages=" + nbrCages +
                 ", nbrAnimals=" + nbrAnimals +
