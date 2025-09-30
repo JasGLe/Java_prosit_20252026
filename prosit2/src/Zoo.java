@@ -1,4 +1,4 @@
-public class Zoo {
+class Zoo {
     // Instruction 5: Attributs de la classe Animal
     Animal[] animals;
     String name;
@@ -33,7 +33,8 @@ public class Zoo {
     //update- instruction 12 -contrainte d'ajout
     public boolean addAnimal(Animal animal) {
         // Vérifier si zoo plein
-        if (nbrAnimals >= nbrCages) {
+        //instruction 17 prosit 4 - on a utilisé la methode isZooFull
+        if (isZooFull()) {
             System.out.println("Impossible d’ajouter " + animal.name + " : zoo plein !");
             return false;
         }

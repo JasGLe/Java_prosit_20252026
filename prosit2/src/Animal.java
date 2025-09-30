@@ -1,11 +1,12 @@
 import java.util.Objects;
 
-public class Animal {
+class Animal {
     // Instruction 5: Attributs de la classe Animal
     String family;
     String name;
     int age;
     boolean isMammal;
+
 
     // Instruction 6 : Constructeur paramétré
     public Animal(String family, String name, int age, boolean isMammal) {
