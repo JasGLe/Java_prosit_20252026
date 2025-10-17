@@ -3,10 +3,9 @@ import java.util.Objects;
 
 public class Animal {
     // Instruction 5: Attributs de la classe Animal
-    private String family;
-    private String name;
-    private int age;
-    private boolean isMammal;
+    protected String family, name;
+    protected int age;
+    protected boolean isMammal;
 
 
     // Instruction 6 : Constructeur paramétré
@@ -38,13 +37,14 @@ public class Animal {
         }else{
             System.out.println("impossible d'ajouter car age negatif !");
             this.age = 0; //valeur par défaut
-        }
-    }
-    public boolean isMammal() {
+
+    }}
+
+    public Boolean isMammal() {
         return isMammal;
     }
-    public void setMammal(boolean mammal) {
-        isMammal = mammal;
+    public void setMammal(Boolean mammal) {
+        this.isMammal = mammal;
     }
     // Instruction 9
     @Override
