@@ -16,16 +16,25 @@ public class Main {
 //        Dolphin dauphin = new Dolphin();
 //        Penguin penguin = new Penguin();
 //
-        Animal lion = new Animal("predator","simba",4,true);
         Zoo myZoo = new Zoo("myZoo","Tunis");
-        myZoo.displayZoo();
+        String[] families = {"Lion", "Tiger", "Bear", "Elephant", "Giraffe", "Zebra",
+                "Hippo", "Rhino", "Cheetah", "Leopard", "Jaguar", "Puma",
+                "Wolf", "Fox", "Hyena", "Crocodile", "Alligator", "Snake",
+                "Monkey", "Gorilla", "Orangutan", "Chimpanzee", "Koala",
+                "Kangaroo", "Panda"};
+        for (int i = 0; i < 25; i++) {
+            Animal animal = new Animal(families[i], "Animal" + (i+1), 5, true);
+            myZoo.addAnimal(animal);
+        }
+        Animal extra = new Animal("Penguin", "Skipper", 3, true);
+        myZoo.addAnimal(extra); // Zoo plein
 
+        myZoo.displayZoo();
 //        System.out.println(myZoo);
 //        System.out.println(myZoo.toString());
 
 
 
-        System.out.println(myZoo);
         System.out.println("------******=====******------");
         Terrestrial terrestre = new Terrestrial("predator","simba",4,true,4);
         Aquatiques aquatique = new Aquatiques("bahouri","houta",5,false,"mer");
