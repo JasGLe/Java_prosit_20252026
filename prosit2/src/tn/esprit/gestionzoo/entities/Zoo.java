@@ -1,12 +1,12 @@
 package tn.esprit.gestionzoo.entities;
-import tn.esprit.gestionzoo.exceptions.ZooFullException;
+import tn.esprit.gestionzoo.exceptions.*;
 
 public class Zoo {
     // Instruction 5: Attributs de la classe Animal
     private Animal[] animals;
     private String name;
     private String city;
-    private final int nbrCages = 3; //constante
+    private final int nbrCages = 25; //constante
     private int nbrAnimals;
 
     // Instruction 6 : Constructeur paramétré
@@ -60,7 +60,12 @@ public class Zoo {
     // méthode d'ajout animal
     //update- instruction 12 -contrainte d'ajout
     //udpate- instruction 32) - from boolean to void
-    public void addAnimal(Animal animal) throws ZooFullException {
+    public void addAnimal(Animal animal) throws ZooFullException, InvalidAgeException {
+        // verifier si age négatif avec exception
+        if (animal.getAge() < 0) {
+            throw new InvalidAgeException("L'age de d'un animal doit etre positif");
+        }
+
         // Vérifier si zoo plein et lancer l'exception
         if (isZooFull()) {
             throw new ZooFullException("Le zoo est plein, impossible d'ajouter un nouvel animal.");
@@ -75,9 +80,10 @@ public class Zoo {
         }
 
         // Ajout autorisé
-        animals[nbrAnimals] = animal;
-        nbrAnimals++;
-        System.out.println(animal.getName() + " ajouté au zoo !");
+            animals[nbrAnimals] = animal;
+            nbrAnimals++;
+            System.out.println(animal.getName() + " ajouté au zoo !");
+
     }
 
         //instruction 11 - méthode displayAnimals()
