@@ -58,25 +58,23 @@ public class Zoo {
     //instruction 10 - prosit3
     // méthode d'ajout animal
     //update- instruction 12 -contrainte d'ajout
-    public boolean addAnimal(Animal animal) {
-        // Vérifier si zoo plein
-        //instruction 17 prosit 4 - on a utilisé la methode isZooFull
-        if (isZooFull()) {
-            System.out.println("Impossible d’ajouter " + animal.getName() + " : zoo plein !");
-            return false;
-        }
+    //udpate- instruction 32) - from boolean to void
+    public void addAnimal(Animal animal) {
         //verifier si animal existe déjà
         for (int i = 0; i < nbrAnimals; i++) {
             if (animals[i].equals(animal)) {
                 System.out.println("Impossible d’ajouter " + animal.getName() + " : animal déjà présent");
-                return false;
+                return;
             }
         }
-        // Ajout autorisé
-        animals[nbrAnimals] = animal;
-        nbrAnimals++;
-        System.out.println( animal.getName() + " ajouté au zoo !");
-        return true;
+        //on a supprimé la verification si zoo plein
+        try {
+            animals[nbrAnimals] = animal;
+            nbrAnimals++;
+            System.out.println(animal.getName() + " ajouté au zoo !");
+        } catch (ArrayIndexOutOfBoundsException e) {
+            System.out.println("Impossible d'ajouter " + animal.getName() + " : zoo plein !");
+        }
     }
 
         //instruction 11 - méthode displayAnimals()
