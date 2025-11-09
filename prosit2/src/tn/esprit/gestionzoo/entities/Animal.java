@@ -31,15 +31,8 @@ public class Animal {
     public int getAge() {
         return age;
     }
-    public void setAge(int age) {
-        if (age>=0) {
-            this.age = age;
-        }else{
-            System.out.println("impossible d'ajouter car age negatif !");
-            this.age = 0; //valeur par défaut
-
-    }}
-
+    public void setAge(int age) { // on a supprimer le setter precedent car on utilise exception
+            this.age = age;}
     public Boolean isMammal() {
         return isMammal;
     }
