@@ -1,11 +1,12 @@
 package tn.esprit.gestionzoo.entities;
+import tn.esprit.gestionzoo.exceptions.ZooFullException;
 
 public class Zoo {
     // Instruction 5: Attributs de la classe Animal
     private Animal[] animals;
     private String name;
     private String city;
-    private final int nbrCages = 25; //constante
+    private final int nbrCages = 3; //constante
     private int nbrAnimals;
 
     // Instruction 6 : Constructeur paramétré
@@ -59,22 +60,24 @@ public class Zoo {
     // méthode d'ajout animal
     //update- instruction 12 -contrainte d'ajout
     //udpate- instruction 32) - from boolean to void
-    public void addAnimal(Animal animal) {
-        //verifier si animal existe déjà
+    public void addAnimal(Animal animal) throws ZooFullException {
+        // Vérifier si zoo plein et lancer l'exception
+        if (isZooFull()) {
+            throw new ZooFullException("Le zoo est plein, impossible d'ajouter un nouvel animal.");
+        }
+
+        // Vérifier si animal existe déjà
         for (int i = 0; i < nbrAnimals; i++) {
             if (animals[i].equals(animal)) {
-                System.out.println("Impossible d’ajouter " + animal.getName() + " : animal déjà présent");
+                System.out.println("Impossible d'ajouter " + animal.getName() + " : animal déjà présent");
                 return;
             }
         }
-        //on a supprimé la verification si zoo plein
-        try {
-            animals[nbrAnimals] = animal;
-            nbrAnimals++;
-            System.out.println(animal.getName() + " ajouté au zoo !");
-        } catch (ArrayIndexOutOfBoundsException e) {
-            System.out.println("Impossible d'ajouter " + animal.getName() + " : zoo plein !");
-        }
+
+        // Ajout autorisé
+        animals[nbrAnimals] = animal;
+        nbrAnimals++;
+        System.out.println(animal.getName() + " ajouté au zoo !");
     }
 
         //instruction 11 - méthode displayAnimals()

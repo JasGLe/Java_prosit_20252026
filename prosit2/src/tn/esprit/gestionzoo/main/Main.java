@@ -1,6 +1,6 @@
 package tn.esprit.gestionzoo.main;
 import tn.esprit.gestionzoo.entities.*;
-
+import tn.esprit.gestionzoo.exceptions.ZooFullException;
 public class Main {
     public static void main(String[] args) {
         //test avec age negatif
@@ -17,18 +17,20 @@ public class Main {
 //        Penguin penguin = new Penguin();
 //
         Zoo myZoo = new Zoo("myZoo","Tunis");
-        String[] families = {"Lion", "Tiger", "Bear", "Elephant", "Giraffe", "Zebra",
-                "Hippo", "Rhino", "Cheetah", "Leopard", "Jaguar", "Puma",
-                "Wolf", "Fox", "Hyena", "Crocodile", "Alligator", "Snake",
-                "Monkey", "Gorilla", "Orangutan", "Chimpanzee", "Koala",
-                "Kangaroo", "Panda"};
-        for (int i = 0; i < 25; i++) {
-            Animal animal = new Animal(families[i], "Animal" + (i+1), 5, true);
-            myZoo.addAnimal(animal);
-        }
-        Animal extra = new Animal("Penguin", "Skipper", 3, true);
-        myZoo.addAnimal(extra); // Zoo plein
+        String[] families = {"Lion", "Tiger", "Bear","jdid"};
+        for (int i = 0; i < families.length; i++) {
+            Animal animal = new Animal(families[i], families[i] + (i+1), 5, true);
 
+            try {
+                myZoo.addAnimal(animal);
+            } catch (ZooFullException e) {
+                System.out.println(" Exception attrapée : " + e.getMessage());
+            }
+
+            // Afficher le nombre total d'animaux après chaque tentative
+            System.out.println("Nombre total d'animaux dans le zoo : " + myZoo.getNbrAnimals() + "/" + myZoo.getNbrCages());
+            System.out.println("---");
+        }
         myZoo.displayZoo();
 //        System.out.println(myZoo);
 //        System.out.println(myZoo.toString());
