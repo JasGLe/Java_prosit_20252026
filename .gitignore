@@ -1,3 +1,14 @@
+ IntelliJ IDEA
+.idea/
+*.iml
+*.iws
+*.ipr
+
+# Fichiers de compilation
+out/
+target/
+*.class
+
 # Default ignored files
 /shelf/
 /workspace.xml
@@ -6,5 +17,3 @@
 # Datasource local storage ignored files
 /dataSources/
 /dataSources.local.xml
-.idea/
-out/
